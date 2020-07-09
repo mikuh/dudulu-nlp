@@ -18,6 +18,7 @@ class TextNormalize
 {
   public:
     TextNormalize();
+    TextNormalize(const std::string data_path, const bool t2s, const bool digital_letter_normal, const bool keep_space);
     std::string normalize(const std::string& text, const bool digital_normal = false);
     std::vector<std::string>& normalize(std::vector<std::string>& text_list, const bool digital_normal = false);
     std::string simple2traditional(const std::string& text, const bool precision = false);
