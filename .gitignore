@@ -31,5 +31,6 @@
 *.out
 *.app
 
-# ide
+# Ide and test file 
 .vscode
+test.*
