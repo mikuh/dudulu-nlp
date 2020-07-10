@@ -39,4 +39,5 @@ inline void trim(std::string& s)
     rtrim(s);
 }
 
+
 } // namespace dududlu
