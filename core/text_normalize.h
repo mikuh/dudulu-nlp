@@ -13,6 +13,7 @@ Normalize text.
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include "../utils/utils.h"
 
 namespace dudulu
 {
@@ -27,15 +28,16 @@ class TextNormalize
     std::string traditional2simple(const std::string& text, const bool precision = false);
 
   private:
-    std::unordered_map<wchar_t, std::wstring> _char_project_dict;
-    std::unordered_map<wchar_t, wchar_t> _s2t_dict;
-    std::unordered_map<wchar_t, wchar_t> _t2s_dict;
-    std::unordered_set<wchar_t> _char_keep_set;
-    void _init_dictionary(const std::string& data_path);
+    static std::unordered_map<wchar_t, std::wstring> _char_project_dict;
+    static std::unordered_map<wchar_t, wchar_t> _s2t_dict;
+    static std::unordered_map<wchar_t, wchar_t> _t2s_dict;
+    static std::unordered_set<wchar_t> _char_keep_set;
+    void _init_dictionarys(const std::string& data_path);
+    void _init_char_project_dict(const std::string& file);
     void _init_t2s_dict(const std::string& file);
     void _init_s2t_dict(const std::string& file);
     void _init_keep_char_set(const std::string& file);
-
+  
 };
 } // namespace dudulu
 

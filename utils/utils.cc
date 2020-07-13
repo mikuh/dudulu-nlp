@@ -1,7 +1,39 @@
 #include "utils.h"
 
-namespace dududlu
+namespace dudulu
 {
+
+void string_split(const std::string& str, const std::string& delimiters, std::vector<std::string>& tokens)
+{
+    // Skip delimiters at beginning.
+    std::string::size_type lastPos = str.find_first_not_of(delimiters, 0);
+    // Find first "non-delimiter".
+    std::string::size_type pos = str.find_first_of(delimiters, lastPos);
+    while (std::string::npos != pos || std::string::npos != lastPos) {
+        // Found a token, add it to the vector.
+        tokens.push_back(str.substr(lastPos, pos - lastPos));
+        // Skip delimiters.
+        lastPos = str.find_first_not_of(delimiters, pos);
+        // Find next "non-delimiter"
+        pos = str.find_first_of(delimiters, lastPos);
+    }
+}
+
+void wstring_split(const std::wstring& str, const std::wstring& delimiters, std::vector<std::wstring>& tokens)
+{
+    // Skip delimiters at beginning.
+    std::wstring::size_type lastPos = str.find_first_not_of(delimiters, 0);
+    // Find first "non-delimiter".
+    std::wstring::size_type pos = str.find_first_of(delimiters, lastPos);
+    while (std::wstring::npos != pos || std::wstring::npos != lastPos) {
+        // Found a token, add it to the vector.
+        tokens.push_back(str.substr(lastPos, pos - lastPos));
+        // Skip delimiters.
+        lastPos = str.find_first_not_of(delimiters, pos);
+        // Find next "non-delimiter"
+        pos = str.find_first_of(delimiters, lastPos);
+    }
+}
 
 std::wstring string2wstring(const std::string& str)
 {
@@ -38,6 +70,5 @@ inline void trim(std::string& s)
     ltrim(s);
     rtrim(s);
 }
-
 
 } // namespace dududlu
