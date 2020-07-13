@@ -15,7 +15,6 @@
 *.so
 *.dylib
 *.dll
-bazel-*/
 
 # Fortran module files
 *.mod
@@ -35,3 +34,7 @@ bazel-*/
 # Ide and temp test file 
 .vscode
 test.*
+bazel-bin
+bazel-dudulu-nlp
+bazel-out
+bazel-testlogs

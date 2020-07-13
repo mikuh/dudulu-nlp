@@ -15,10 +15,11 @@ TextNormalize::TextNormalize(const std::string& data_path)
 
 void TextNormalize::_init_dictionarys(const std::string& data_path)
 {
-
+    std::string char_project_file = data_path + (data_path.back() == '/' ? "char_project.txt" : "/char_project.txt");
     std::string t2s_file = data_path + (data_path.back() == '/' ? "t2s.txt" : "/t2s.txt");
     std::string s2t_file = data_path + (data_path.back() == '/' ? "s2t.txt" : "/s2t.txt");
     std::string char_keep_file = data_path + (data_path.back() == '/' ? "char_keep.txt" : "/char_keep.txt");
+    _init_char_project_dict(char_project_file);
     _init_t2s_dict(t2s_file);
     _init_s2t_dict(s2t_file);
     _init_keep_char_set(char_keep_file);
