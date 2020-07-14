@@ -19,9 +19,16 @@ cc_library(
     hdrs = ["utils/utils.h"],
 )
 
+cc_library(
+    name = "trie",
+    srcs = ["utils/trie.cc"],
+    hdrs = ["utils/trie.h"],
+    deps = [":utils"],
+)
+
 
 cc_binary(
     name = "test",
     srcs = ["test.cc"],
-    deps = [":text_normalize", ":text_tokenizer"],
+    deps = [":text_normalize", ":text_tokenizer", ":trie"],
 )
