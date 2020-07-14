@@ -9,7 +9,7 @@ cc_library(
     name = "text_tokenizer",
     srcs = ["core/text_tokenizer.cc"],
     hdrs = ["core/text_tokenizer.h"],
-    deps = [":utils"],
+    deps = [":utils", ":trie"],
 )
 
 

@@ -46,4 +46,30 @@ bool TrieTree::search(const std::string&& word)
     return false;
 }
 
+bool TrieTree::startswith(const std::string&& word)
+{
+    auto cur_node = _root;
+    for (wchar_t ch : string2wstring(word)) {
+        if (cur_node->_map.find(ch) != cur_node->_map.end()) {
+            cur_node = cur_node->_map[ch];
+            continue;
+        }
+        return false;
+    }
+    return true;
+}
+
+bool TrieTree::startswith(const std::wstring&& word)
+{
+    auto cur_node = _root;
+    for (wchar_t ch : word) {
+        if (cur_node->_map.find(ch) != cur_node->_map.end()) {
+            cur_node = cur_node->_map[ch];
+            continue;
+        }
+        return false;
+    }
+    return true;
+}
+
 } // namespace dudulu

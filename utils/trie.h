@@ -33,7 +33,8 @@ class TrieTree
     TrieTree(const std::unordered_map<std::wstring, std::pair<double, std::string>>& words);
     void insert(const std::wstring& word);
     bool search(const std::string&& word);
-    void temp_test();
+    bool startswith(const std::string&& word);
+    bool startswith(const std::wstring&& word);
 
   private:
     std::unordered_map<std::wstring, std::pair<double, std::string>> _words;
